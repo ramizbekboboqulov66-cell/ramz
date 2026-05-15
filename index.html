@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<div class="quiz-container" style="background: #0d0d0d; color: #00f2ff; font-family: 'Inter', sans-serif;">
+  <div class="progress-bar-container">
+    <div id="progress" style="height: 4px; background: linear-gradient(90deg, #00f2ff, #7000ff); width: 0%;"></div>
+  </div>
+  
+  <div class="stats-header">
+    <span id="timer-display" class="neon-text">13s</span>
+    <span id="score-display">Score: 0</span>
+  </div>
+
+  <h2 id="question-text">Initializing Neural Quiz...</h2>
+  
+  <div class="options-grid">
+    </div>
+</div>
+[
+  {
+    "question": "In computer science, what does 'API' stand for?",
+    "options": ["Application Programming Interface", "Automated Process Integration", "Advanced Program Instruction", "Array Processing Information"],
+    "correctAnswer": "Application Programming Interface"
+  },
+  {
+    "question": "If a triangle has sides of length 3, 4, and 5, what is its area?",
+    "options": ["6", "12", "7.5", "10"],
+    "correctAnswer": "6"
+  },
+  {
+    "question": "Which empire was ruled by Mansa Musa, often cited as the wealthiest individual in history?",
+    "options": ["Mali Empire", "Ottoman Empire", "Songhai Empire", "Aztec Empire"],
+    "correctAnswer": "Mali Empire"
+  },
+  {
+    "question": "Which of these is a 'portmanteau' word in English?",
+    "options": ["Brunch", "Apple", "House", "Running"],
+    "correctAnswer": "Brunch"
+  },
+  {
+    "question": "What is the primary gas found in the atmosphere of Venus?",
+    "options": ["Carbon Dioxide", "Nitrogen", "Oxygen", "Methane"],
+    "correctAnswer": "Carbon Dioxide"
+  },
+  {
+    "question": "Logic: If all Bloomps are Gloomps, and some Gloomps are Floomps, are some Bloomps definitely Floomps?",
+    "options": ["No", "Yes", "Only on Tuesdays", "Insufficient Data"],
+    "correctAnswer": "No"
+  },
+  {
+    "question": "Which country has the most natural lakes in the world?",
+    "options": ["Canada", "Russia", "USA", "Brazil"],
+    "correctAnswer": "Canada"
+  },
+  {
+    "question": "Who is considered the father of the World Wide Web?",
+    "options": ["Tim Berners-Lee", "Bill Gates", "Alan Turing", "Steve Jobs"],
+    "correctAnswer": "Tim Berners-Lee"
+  },
+  {
+    "question": "What is the value of $2^5 - 2^3$?",
+    "options": ["24", "16", "32", "8"],
+    "correctAnswer": "24"
+  },
+  {
+    "question": "Which historical document was signed in 1215 at Runnymede?",
+    "options": ["Magna Carta", "The Bill of Rights", "Declaration of Independence", "Treaty of Versailles"],
+    "correctAnswer": "Magna Carta"
+  },
+  {
+    "question": "What is the chemical symbol for Tungsten?",
+    "options": ["W", "T", "Tn", "Tg"],
+    "correctAnswer": "W"
+  },
+  {
+    "question": "In English grammar, which mood is used to express a wish or a hypothetical situation?",
+    "options": ["Subjunctive", "Indicative", "Imperative", "Passive"],
+    "correctAnswer": "Subjunctive"
+  },
+  {
+    "question": "Which city is located on two continents?",
+    "options": ["Istanbul", "Cairo", "Moscow", "Panama City"],
+    "correctAnswer": "Istanbul"
+  },
+  {
+    "question": "What is the main function of a 'Heatsink' in a computer?",
+    "options": ["Dissipate Heat", "Store Power", "Process Graphics", "Increase Clock Speed"],
+    "correctAnswer": "Dissipate Heat"
+  },
+  {
+    "question": "Logic: Five people run a race. If you pass the person in second place, what place are you in?",
+    "options": ["Second", "First", "Third", "Last"],
+    "correctAnswer": "Second"
+  },
+  {
+    "question": "Which scientist developed the 'Uncertainty Principle'?",
+    "options": ["Werner Heisenberg", "Niels Bohr", "Albert Einstein", "Max Planck"],
+    "correctAnswer": "Werner Heisenberg"
+  },
+  {
+    "question": "What is the capital city of Kazakhstan?",
+    "options": ["Astana", "Almaty", "Tashkent", "Baku"],
+    "correctAnswer": "Astana"
+},
+  {
+    "question": "Which literary character lives at 221B Baker Street?",
+    "options": ["Sherlock Holmes", "Hercule Poirot", "James Bond", "Dorian Gray"],
+    "correctAnswer": "Sherlock Holmes"
+  },
+  {
+    "question": "What is the hex code for pure white?",
+    "options": ["#FFFFFF", "#000000", "#FF0000", "#F0F0F0"],
+    "correctAnswer": "#FFFFFF"
+  },
+  {
+    "question": "The 'Industrial Revolution' began in which century?",
+    "options": ["18th Century", "17th Century", "19th Century", "16th Century"],
+    "correctAnswer": "18th Century"
+  },
+  {
+    "question": "What is the square root of 225?",
+    "options": ["15", "25", "12", "18"],
+    "correctAnswer": "15"
+  },
+  {
+    "question": "Which organ in the human body is responsible for filtering blood?",
+    "options": ["Kidneys", "Liver", "Lungs", "Heart"],
+    "correctAnswer": "Kidneys"
+  },
+  {
+    "question": "Which protocol is used to securely browse the internet?",
+    "options": ["HTTPS", "FTP", "SMTP", "Telnet"],
+    "correctAnswer": "HTTPS"
+  },
+  {
+    "question": "Which of these is NOT a primary color of light?",
+    "options": ["Yellow", "Red", "Green", "Blue"],
+    "correctAnswer": "Yellow"
+  },
+  {
+    "question": "Who wrote 'The Art of War'?",
+    "options": ["Sun Tzu", "Confucius", "Laozi", "Genghis Khan"],
+    "correctAnswer": "Sun Tzu"
+  },
+  {
+    "question": "What is the largest desert on Earth?",
+    "options": ["Antarctica", "Sahara", "Gobi", "Arabian"],
+    "correctAnswer": "Antarctica"
+  },
+  {
+    "question": "Logic: A clock loses 10 minutes every hour. If it is set at 12:00, what time will it show at 3:00 real time?",
+    "options": ["2:30", "2:40", "2:50", "3:30"],
+    "correctAnswer": "2:30"
+  },
+  {
+    "question": "What is the term for a word that is spelled the same backwards and forwards?",
+    "options": ["Palindrome", "Anagram", "Homonym", "Synonym"],
+    "correctAnswer": "Palindrome"
+  },
+  {
+    "question": "Which planet has the shortest day in our solar system?",
+    "options": ["Jupiter", "Mars", "Earth", "Saturn"],
+    "correctAnswer": "Jupiter"
+  },
+  {
+    "question": "The 'Enlightenment' era is best associated with which concept?",
+    "options": ["Reason", "Feudalism", "Industrialization", "Colonization"],
+    "correctAnswer": "Reason"
+  }
+]
+[
+  {
+    "question": "What is the derivative of $x^2$?",
+    "options": ["2x", "x", "2", "x^3"],
+    "correctAnswer": "2x"
+  },
+  {
+    "question": "The Great Wall of China was primarily built to protect against which group?",
+    "options": ["Mongols", "Romans", "Vikings", "Persians"],
+    "correctAnswer": "Mongols"
+  },
+  {
+    "question": "Which mountain range separates Europe and Asia?",
+    "options": ["Ural Mountains", "Alps", "Himalayas", "Andes"],
+    "correctAnswer": "Ural Mountains"
+  },
+  {
+    "question": "Which programming language is known as the 'lingua franca' of Data Science?",
+    "options": ["Python", "C++", "Java", "PHP"],
+    "correctAnswer": "Python"
+  },
+  {
+    "question": "What is the most abundant element in the Universe?",
+    "options": ["Hydrogen", "Oxygen", "Carbon", "Helium"],
+    "correctAnswer": "Hydrogen"
+  },
+  {
+    "question": "Identify the figure of speech: 'The wind whispered through the trees.'",
+    "options": ["Personification", "Metaphor", "Hyperbole", "Simile"],
+    "correctAnswer": "Personification"
+  },
+  {
+    "question": "Which logic gate outputs 'True' only if both inputs are 'True'?",
+    "options": ["AND", "OR", "XOR", "NAND"],
+    "correctAnswer": "AND"
+  },
+  {
+    "question": "In what year did the Berlin Wall fall?",
+    "options": ["1989", "1991", "1987", "1990"],
+    "correctAnswer": "1989"
+  },
+  {
+    "question": "What is the deepest point in the Earth's oceans?",
+    "options": ["Mariana Trench", "Tonga Trench", "Puerto Rico Trench", "Java Trench"],
+"correctAnswer": "Mariana Trench"
+  },
+  {
+    "question": "Which part of the CPU performs mathematical calculations?",
+    "options": ["ALU", "CU", "RAM", "Cache"],
+    "correctAnswer": "ALU"
+  },
+  {
+    "question": "How many bits are in a byte?",
+    "options": ["8", "16", "4", "32"],
+    "correctAnswer": "8"
+  },
+  {
+    "question": "Solve: $15 \times 4 - 10 \div 2$",
+    "options": ["55", "25", "35", "50"],
+    "correctAnswer": "55"
+  },
+  {
+    "question": "Who was the first woman to win a Nobel Prize?",
+    "options": ["Marie Curie", "Rosalind Franklin", "Ada Lovelace", "Jane Goodall"],
+    "correctAnswer": "Marie Curie"
+  },
+  {
+    "question": "Which country is the smallest by land area?",
+    "options": ["Vatican City", "Monaco", "Nauru", "San Marino"],
+    "correctAnswer": "Vatican City"
+  },
+  {
+    "question": "What does the 'S' stand for in 'IoT'?",
+    "options": ["Nothing (it's things)", "Services", "System", "Security"],
+    "correctAnswer": "Nothing (it's things)"
+  },
+  {
+    "question": "An 'Oxymoron' is a figure of speech that:",
+    "options": ["Combines contradictory terms", "Exaggerates the truth", "Compares using 'like'", "Uses animal sounds"],
+    "correctAnswer": "Combines contradictory terms"
+  },
+  {
+    "question": "What is the pH level of pure water?",
+    "options": ["7", "1", "14", "5"],
+    "correctAnswer": "7"
+  },
+  {
+    "question": "Which explorer is credited with the first circumnavigation of the globe?",
+    "options": ["Magellan", "Columbus", "Cook", "Da Gama"],
+    "correctAnswer": "Magellan"
+  },
+  {
+    "question": "Logic: All squares are rectangles. Some rectangles are red. Therefore, are some squares red?",
+    "options": ["Not necessarily", "Yes", "No", "Always"],
+    "correctAnswer": "Not necessarily"
+  },
+  {
+    "question": "Which ocean lies between Africa and Australia?",
+    "options": ["Indian Ocean", "Atlantic Ocean", "Pacific Ocean", "Arctic Ocean"],
+    "correctAnswer": "Indian Ocean"
+  },
+  {
+    "question": "What is the 'brain' of the cell called?",
+    "options": ["Nucleus", "Mitochondria", "Ribosome", "Vacuole"],
+    "correctAnswer": "Nucleus"
+  },
+  {
+    "question": "What is the speed of light in a vacuum (approx)?",
+    "options": ["300,000 km/s", "150,000 km/s", "500,000 km/s", "1,000,000 km/s"],
+    "correctAnswer": "300,000 km/s"
+  },
+  {
+    "question": "Which US state is known as the 'Sunshine State'?",
+    "options": ["Florida", "California", "Texas", "Arizona"],
+    "correctAnswer": "Florida"
+  },
+  {
+    "question": "What does 'HTTP' stand for?",
+    "options": ["Hypertext Transfer Protocol", "High Tech Transfer Process", "Hyperlink Textual Point", "Home Tool Transfer Pack"],
+    "correctAnswer": "Hypertext Transfer Protocol"
+  },
+  {
+    "question": "Who painted the 'Girl with a Pearl Earring'?",
+    "options": ["Johannes Vermeer", "Rembrandt", "Van Gogh", "Da Vinci"],
+    "correctAnswer": "Johannes Vermeer"
+  },
+  {
+    "question": "Logic: If you have three apples and you take away two, how many apples do you have?",
+    "options": ["2", "1", "3", "0"],
+    "correctAnswer": "2"
+  },
+  {
+    "question": "Which suffix is used to form a comparative adjective in English?",
+    "options": ["-er", "-est", "-ly", "-ing"],
+    "correctAnswer": "-er"
+  },
+  {
+    "question": "Which continent has the most countries?",
+    "options": ["Africa", "Asia", "Europe", "South America"],
+    "correctAnswer": "Africa"
+  },
+  {
+    "question": "What is the capital of Japan?",
+    "options": ["Tokyo", "Kyoto", "Osaka", "Nagoya"],
+    "correctAnswer": "Tokyo"
+  },
+  {
+    "question": "What is the value of $\pi$ rounded to two decimal places?",
+    "options": ["3.14", "3.16", "3.12", "3.18"],
+    "correctAnswer": "3.14"
+  }
+]
+
+</html>
