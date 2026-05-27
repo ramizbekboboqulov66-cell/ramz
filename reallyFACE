@@ -1,0 +1,862 @@
+[faceid_updated-1.html](https://github.com/user-attachments/files/28304990/faceid_updated-1.html)
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI FACE ID SCHOOL SYSTEM</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    background:#111827;
+    padding:20px;
+    border-right:2px solid #1e293b;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#38bdf8;
+    margin-bottom:40px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu button{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#1e293b;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* MAIN */
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+.page{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:32px;
+    font-weight:bold;
+}
+
+/* DASHBOARD */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111827;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.card h1{
+    font-size:45px;
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+/* FACE ID */
+
+.camera-box{
+    background:#111827;
+    padding:20px;
+    border-radius:20px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.camera{
+    position:relative;
+}
+
+video{
+    width:650px;
+    max-width:100%;
+    border-radius:20px;
+    border:4px solid #38bdf8;
+}
+
+.scan-box{
+    position:absolute;
+    top:120px;
+    left:220px;
+    width:200px;
+    height:200px;
+    border:4px solid #22c55e;
+    border-radius:20px;
+    animation:scan 1s infinite;
+}
+
+@keyframes scan{
+
+    0%{
+        box-shadow:0 0 10px #22c55e;
+    }
+
+    50%{
+        box-shadow:0 0 35px #22c55e;
+    }
+
+    100%{
+        box-shadow:0 0 10px #22c55e;
+    }
+
+}
+
+.side{
+    width:300px;
+}
+
+.info-box{
+    background:#1e293b;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+.info-title{
+    color:#94a3b8;
+    margin-bottom:10px;
+}
+
+.status{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.scan-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:#38bdf8;
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.photo{
+    width:100%;
+    border-radius:15px;
+    margin-top:15px;
+    border:3px solid #38bdf8;
+}
+
+/* ADMIN */
+
+.admin-box{
+    background:#111827;
+    padding:25px;
+    border-radius:20px;
+}
+
+.inputs{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.inputs input{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#1e293b;
+    color:white;
+}
+
+.add-btn{
+    margin-top:20px;
+    padding:15px 25px;
+    border:none;
+    border-radius:12px;
+    background:#22c55e;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+/* JOURNAL */
+
+.journal{
+    width:100%;
+    overflow:auto;
+    background:#111827;
+    padding:20px;
+    border-radius:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1200px;
+}
+
+th{
+    background:#38bdf8;
+    color:black;
+    padding:15px;
+}
+
+td{
+    background:#1e293b;
+    padding:15px;
+    text-align:center;
+    border-bottom:2px solid #0f172a;
+}
+
+td img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #38bdf8;
+}
+
+.day-btn{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.present{
+    background:#22c55e;
+}
+
+.absent{
+    background:#ef4444;
+}
+
+.road{
+    background:#f59e0b;
+}
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        FACE ID PRO
+    </div>
+
+    <div class="menu">
+
+        <button onclick="showPage('dashboard')">
+            Dashboard
+        </button>
+
+        <button onclick="showPage('faceid')">
+            Face ID
+        </button>
+
+        <button onclick="showPage('journalPage')">
+            Davomat
+        </button>
+
+        <button onclick="showPage('adminPage')">
+            Admin
+        </button>
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- DASHBOARD -->
+
+<div class="page active" id="dashboard">
+
+    <div class="top">
+
+        <div class="title">
+            Dashboard
+        </div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h1 id="allStudents">
+                0
+            </h1>
+
+            <p>O‘quvchilar</p>
+
+        </div>
+
+        <div class="card">
+
+            <h1 id="presentCount">
+                0
+            </h1>
+
+            <p>Kelgan</p>
+
+        </div>
+
+        <div class="card">
+
+            <h1 id="absentCount">
+                0
+            </h1>
+
+            <p>Kelmagan</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FACE ID -->
+
+<div class="page" id="faceid">
+
+    <div class="top">
+
+        <div class="title">
+            AI Face ID
+        </div>
+
+    </div>
+
+    <div class="camera-box">
+
+        <div class="camera">
+
+            <video id="video"
+                   autoplay
+                   muted>
+            </video>
+
+            <div class="scan-box"></div>
+
+            <canvas id="canvas"></canvas>
+
+        </div>
+
+        <div class="side">
+
+            <div class="info-box">
+
+                <div class="info-title">
+                    Face ID Status
+                </div>
+
+                <div class="status"
+                     id="status">
+
+                    Kutmoqda...
+
+                </div>
+
+            </div>
+
+            <div class="info-box">
+
+                <div class="info-title">
+                    AI Confidence
+                </div>
+
+                <div class="status"
+                     id="confidence">
+
+                    0%
+
+                </div>
+
+            </div>
+
+            <button class="scan-btn"
+                    onclick="scanFace()">
+
+                FACE SCAN
+
+            </button>
+
+            <img id="photo"
+                 class="photo">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JOURNAL -->
+
+<div class="page"
+     id="journalPage">
+
+    <div class="top">
+
+        <div class="title">
+            Elektron Jurnal
+        </div>
+
+    </div>
+
+    <div class="journal">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Rasm</th>
+                    <th>Ism</th>
+                    <th>Sinf</th>
+
+                    <th>27.05</th>
+                    <th>29.05</th>
+                    <th>01.06</th>
+                    <th>03.06</th>
+                    <th>05.06</th>
+                    <th>08.06</th>
+                    <th>10.06</th>
+                    <th>12.06</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="journalBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- ADMIN -->
+
+<div class="page"
+     id="adminPage">
+
+    <div class="top">
+
+        <div class="title">
+            Admin Panel
+        </div>
+
+    </div>
+
+    <div class="admin-box">
+
+        <h2>
+            O‘quvchi Qo‘shish
+        </h2>
+
+        <div class="inputs">
+
+            <input type="password"
+                   id="password"
+                   placeholder="Admin Parol">
+
+            <input type="text"
+                   id="name"
+                   placeholder="Ism Familiya">
+
+            <input type="text"
+                   id="class"
+                   placeholder="Sinf">
+
+            <input type="text"
+                   id="image"
+                   placeholder="Rasm URL">
+
+        </div>
+
+        <button class="add-btn"
+                onclick="addStudent()">
+
+            Qo‘shish
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+/* PAGE */
+
+function showPage(pageId){
+
+    let pages =
+        document.querySelectorAll(".page");
+
+    pages.forEach(page=>{
+
+        page.style.display = "none";
+
+    });
+
+    document.getElementById(pageId)
+        .style.display = "block";
+
+}
+
+/* CAMERA */
+
+const video =
+    document.getElementById("video");
+
+navigator.mediaDevices
+.getUserMedia({
+    video:true
+})
+.then(stream=>{
+
+    video.srcObject = stream;
+
+});
+
+/* COUNTS */
+
+let total = 0;
+let present = 0;
+let absent = 0;
+
+/* UPDATE */
+
+function updateStats(){
+
+    document.getElementById(
+        "allStudents"
+    ).innerHTML = total;
+
+    document.getElementById(
+        "presentCount"
+    ).innerHTML = present;
+
+    document.getElementById(
+        "absentCount"
+    ).innerHTML = absent;
+
+}
+
+/* FACE ID */
+
+function scanFace(){
+
+    const canvas =
+        document.getElementById("canvas");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    canvas.width =
+        video.videoWidth;
+
+    canvas.height =
+        video.videoHeight;
+
+    ctx.drawImage(
+        video,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    let image =
+        canvas.toDataURL("image/png");
+
+    document.getElementById(
+        "photo"
+    ).src = image;
+
+    let ai =
+        Math.floor(Math.random()*100);
+
+    document.getElementById(
+        "confidence"
+    ).innerHTML = ai + "%";
+
+    let status =
+        document.getElementById(
+            "status"
+        );
+
+    if(ai >= 70){
+
+        status.innerHTML =
+            "✅ TANILDI";
+
+        status.style.color =
+            "#22c55e";
+
+    }else{
+
+        status.innerHTML =
+            "❌ TANILMADI";
+
+        status.style.color =
+            "#ef4444";
+
+    }
+
+}
+
+/* ADMIN */
+
+function addStudent(){
+
+    const ADMIN_PASSWORD =
+        "admin123";
+
+    let password =
+        document.getElementById(
+            "password"
+        ).value;
+
+    if(password !== ADMIN_PASSWORD){
+
+        alert("❌ Parol noto‘g‘ri");
+
+        return;
+
+    }
+
+    let name =
+        document.getElementById(
+            "name"
+        ).value;
+
+    let className =
+        document.getElementById(
+            "class"
+        ).value;
+
+    let image =
+        document.getElementById(
+            "image"
+        ).value;
+
+    let row =
+        document.createElement("tr");
+
+    row.innerHTML = `
+
+        <td>
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+        </td>
+
+        <td>
+            ${name}
+        </td>
+
+        <td>
+            ${className}
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+        <td>
+            <button class="day-btn absent"
+                    onclick="changeDay(this)">
+                ❌
+            </button>
+        </td>
+
+    `;
+
+    document
+        .getElementById(
+            "journalBody"
+        )
+        .appendChild(row);
+
+    total++;
+    absent++;
+
+    updateStats();
+
+}
+
+/* CHANGE DAY */
+
+function changeDay(button){
+
+    if(
+        button.classList.contains(
+            "absent"
+        )
+    ){
+
+        button.classList.remove(
+            "absent"
+        );
+
+        button.classList.add(
+            "road"
+        );
+
+        button.innerHTML =
+            "🟡";
+
+    }
+
+    else if(
+        button.classList.contains(
+            "road"
+        )
+    ){
+
+        button.classList.remove(
+            "road"
+        );
+
+        button.classList.add(
+            "present"
+        );
+
+        button.innerHTML =
+            "✅";
+
+    }
+
+    else{
+
+        button.classList.remove(
+            "present"
+        );
+
+        button.classList.add(
+            "absent"
+        );
+
+        button.innerHTML =
+            "❌";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
